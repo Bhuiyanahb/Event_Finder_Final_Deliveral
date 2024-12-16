@@ -2,7 +2,112 @@
   "version": 2, 
   "builds": [
     {
-      "src": "./index.js",
+      "src": "./About.html",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}
+{
+  "version": 2, 
+  "builds": [
+    {
+      "src": "./DEVELOPER.md",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}
+{
+  "version": 2, 
+  "builds": [
+    {
+      "src": "./EventFinder.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}
+{
+  "version": 2, 
+  "builds": [
+    {
+      "src": "./Events.html",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}
+{
+  "version": 2, 
+  "builds": [
+    {
+      "src": "./Home.html",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}
+{
+  "version": 2, 
+  "builds": [
+    {
+      "src": "./README.md",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}
+{
+  "version": 2, 
+  "builds": [
+    {
+      "src": "./Styling.css",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}
+{
+  "version": 2, 
+  "builds": [
+    {
+      "src": "./aboutstyling.css",
       "use": "@vercel/node"
     }
   ],
