@@ -37,22 +37,48 @@ body{
 }
 
 .grid-container {
-    display: grid;
-    column-gap: 20px;
-    grid-template-columns: auto auto auto;
-    background-color: #4e009b;
-    padding: 20px;
-  }
-  
-  .grid-item {
-    background-color: black;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    color:white;
-    font-size: 25px;
-    text-align: center;
-    border-color: white;
-    margin: 10px;
-  }
+  display: flex; 
+  justify-content: center;
+  flex-wrap: wrap; 
+  background-color: #4e009b;
+  padding: 20px;
+}
+
+.grid-item {
+  margin: 10px; 
+}
+
+.custom-button {
+  background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block; 
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem; 
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.custom-button:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.custom-button:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+
 
   /* Main content area */
 .main-container {

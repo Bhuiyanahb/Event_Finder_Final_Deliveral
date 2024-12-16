@@ -1,17 +1,32 @@
 function changeHomePage() {
-    window.location.href = "Home.html"
+    window.location.href = "Home.html";
 }
 
 function changeAboutPage() {
-    window.location.href = "About.html"
+    window.location.href = "About.html";
 }
 
 function changeEventsPage() {
-    window.location.href = "Events.html"
+    window.location.href = "Events.html";
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+function redirectToEvents(categoryId) {
+    window.location.href = `Events.html?category=${categoryId}`;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
     const categorySelect = document.getElementById('categorySelect');
+
+    // Check if a category is passed in the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedCategory = urlParams.get('category');
+
+    if (selectedCategory) {
+        categorySelect.value = selectedCategory; // Preselect the category
+        updateFilters(); // Load events for the selected category
+    }
+
+    // Existing event listeners
     const venuesSelect = document.getElementById('venues');
     const eventDatesSelect = document.getElementById('eventDates');
 
@@ -30,6 +45,8 @@ function updateFilters() {
 
     loadEventsByFilter(category, venue, eventDate);
 }
+
+
 
 function loadEventsByFilter(category, venue, eventDate) {
     const apiURL = 'https://app.ticketmaster.com/discovery/v2/events.json';
@@ -103,7 +120,7 @@ function loadVenues() {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            selectElement.innerHTML = '<option value="">Select venue</option>';
+            selectElement.innerHTML = '<option value="">No Venue Filter</option>';
             data._embedded.venues.forEach(venue => {
                 const option = document.createElement('option');
                 option.value = venue.id;
@@ -124,7 +141,7 @@ function loadEventDates() {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            selectElement.innerHTML = '<option value="">Select Date</option>';
+            selectElement.innerHTML = '<option value="">No Date Filter</option>';
             const dates = new Set();
             data?._embedded?.events?.forEach(event => {
                 dates.add(event.dates?.start?.localDate);
@@ -145,10 +162,6 @@ function loadEventDates() {
         });
 }
 
-window.onload = function() {
-    loadEventDates();
-    loadVenues();
-};
 
 // Carousel functions (if you're still using them)
 let currentIndex = 0;
